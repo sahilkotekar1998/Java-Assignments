@@ -1,0 +1,398 @@
+1) accept two numbers and add them.
+
+
+import java.util.Scanner;
+
+class Calculator {
+    private double number1;
+    private double number2;
+
+ 
+    public Calculator(double num1, double num2) {
+        this.number1 = num1;
+        this.number2 = num2;
+    }
+
+    public double add() {
+        return number1 + number2;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        Calculator calculator = new Calculator(num1, num2);
+
+        double result = calculator.add();
+
+        System.out.println("Result of addition: " + result);
+
+        scanner.close();
+    }
+}
+
+
+
+
+ 
+2) accept two numbers and subtract them.
+
+
+import java.util.Scanner;
+
+class Calculator {
+    private double number1;
+    private double number2;
+
+    public Calculator(double num1, double num2) {
+        this.number1 = num1;
+        this.number2 = num2;
+    }
+
+    public double subtract() {
+        return number1 - number2;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        Calculator calculator = new Calculator(num1, num2);
+
+        double result = calculator.subtract();
+
+        System.out.println("Result of subtraction: " + result);
+
+        scanner.close();
+    }
+}
+
+
+
+
+3) accept two numbers and multiply them.
+
+
+import java.util.Scanner;
+
+class Calculator {
+    private double number1;
+    private double number2;
+
+    public Calculator(double num1, double num2) {
+        this.number1 = num1;
+        this.number2 = num2;
+    }
+
+    public double multiply() {
+        return number1 * number2;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        Calculator calculator = new Calculator(num1, num2);
+
+        double result = calculator.multiply();
+
+        System.out.println("Result of multiplication: " + result);
+
+        scanner.close();
+    }
+}
+
+
+
+
+
+
+4) accept two numbers and devide them.
+
+import java.util.Scanner;
+
+class Calculator {
+    private double number1;
+    private double number2;
+
+    public Calculator(double num1, double num2) {
+        this.number1 = num1;
+        this.number2 = num2;
+    }
+
+    public double divide() {
+        if (number2 != 0) {
+            return number1 / number2;
+        } else {
+            System.out.println("Error: Division by zero is not allowed.");
+            return Double.NaN; 
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        Calculator calculator = new Calculator(num1, num2);
+
+        double result = calculator.divide();
+
+        if (!Double.isNaN(result)) {
+            System.out.println("Result of division: " + result);
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+
+5) accept two numbers and check whether first number is greater or second number is greater or they are equal.
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        if (num1 > num2) {
+            System.out.println("The first number is greater than the second number.");
+        } else if (num1 < num2) {
+            System.out.println("The second number is greater than the first number.");
+        } else {
+            System.out.println("The two numbers are equal.");
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+6) accept a number and check whether it is divisible by 3 or not.
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        if (number % 3 == 0) {
+            System.out.println(number + " is divisible by 3.");
+        } else {
+            System.out.println(number + " is not divisible by 3.");
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+1. Display a table of a particular number
+
+import java.util.Scanner;
+
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        System.out.print("Enter the number of rows for the multiplication table: ");
+        int numberOfRows = scanner.nextInt();
+
+        System.out.println("Multiplication Table for " + number + ":");
+        for (int i = 1; i <= numberOfRows; i++) {
+            int result = number * i;
+            System.out.println(number + " x " + i + " = " + result);
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+
+2. Declare two numbers and one operator as a character. e.g. '+'
+using switch... case check which operator is declared and accordingly perform the action.
+
+
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0); 
+
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+
+        double result;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                System.out.println("Result: " + result);
+                break;
+            case '-':
+                result = num1 - num2;
+                System.out.println("Result: " + result);
+                break;
+            case '*':
+                result = num1 * num2;
+                System.out.println("Result: " + result);
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("Result: " + result);
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                }
+                break;
+            default:
+                System.out.println("Error: Invalid operator.");
+                break;
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+3. Display numbers  1 to 10 using loop
+
+
+public class DisplayNumbers {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+}
+
+
+4) Display numbers from 3 to 30 except number 24  using loop.
+
+public class DisplayNumbers {
+    public static void main(String[] args) {
+        for (int i = 3; i <= 30; i++) {
+            if (i != 24) {
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+
+5) Using if…….else if….  Else,  display whether result is  fail, pass, second class , first class, Distinction etc.
+
+import java.util.Scanner;
+
+public class ResultCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the score: ");
+        int score = scanner.nextInt();
+
+        if (score < 40) {
+            System.out.println("Result: Fail");
+        } else if (score < 60) {
+            System.out.println("Result: Pass");
+        } else if (score < 75) {
+            System.out.println("Result: Second Class");
+        } else if (score < 90) {
+            System.out.println("Result: First Class");
+        } else {
+            System.out.println("Result: Distinction");
+        }
+
+        scanner.close();
+    }
+}
+
+
+
+6) Display all prime numbers between 3 to 30
+
+public class PrimeNumbers {
+    public static void main(String[] args) {
+        System.out.println("Prime numbers between 3 and 30:");
+
+        for (int number = 3; number <= 30; number++) {
+            if (isPrime(number)) {
+                System.out.println(number);
+            }
+        }
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+
+
+
+
+
+
