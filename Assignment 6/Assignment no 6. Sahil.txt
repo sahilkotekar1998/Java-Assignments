@@ -1,0 +1,341 @@
+ Assignment No. 6   
+
+ Sahil Kotekar.
+
+
+Q.1)
+
+For Developer: 
+
+package Interface;
+
+interface Shape
+{
+	public void show();
+}
+
+
+class Triangle implements Shape
+{
+	public void show()
+	{
+		System.out.println("Traingle Shape");
+	}
+}
+
+
+class Rectangle implements Shape
+{
+	public void show()
+	{
+		System.out.println("Rectangle Shape");
+	}
+}
+
+
+class Circle implements Shape
+{
+	public void show()
+	{
+		System.out.println("Rectangle Shape");
+	}
+}
+
+public class Interface_code
+{
+	public static void main(String args[])
+	{
+		Triangle t = new Triangle();
+		Rectangle r = new Rectangle();
+		Circle c = new Circle();
+		t.show();
+		r.show();
+		c.show();
+		
+	}
+}
+
+For Client:
+
+import Interface.ShapeDemo;
+public class ShapeDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Shape arr[] = new Shape[3];
+		arr[0] = new Traingle();
+		arr[1] = new Rectangle();
+		arr[2] = new Circle();
+		
+		for(int i=0; i<arr.length; i++)
+		{
+			arr[i].show();
+		}
+
+	}
+
+}
+
+Q.2)
+
+package Interface;
+
+interface MouseHandler
+{
+	void mouseClicked();
+	void mousePressed();
+	void mouseReleased();
+}
+interface WindowHandler
+{
+	void windowClosing();
+	void windowClosed();
+}
+
+class WindowGUIApp implements MouseHandler,WindowHandler
+{
+	public void mouseClicked()
+	{
+		System.out.println("Mouse is clicked");
+	}
+	public void mousePressed()
+	{
+		System.out.println("Mouse is pressed");
+	}
+	public void mouseReleased()
+	{
+		System.out.println("Mouse is released");
+	}
+	public void windowClosing()
+	{
+		System.out.println("window is closing");
+	}
+	public void windowClosed()
+	{
+		System.out.println("window is closed");
+	}
+}
+
+public class GuiDemo
+{
+	public static void main(String[] args) 
+	{
+		WindowGUIApp w = new WindowGUIApp();
+		w.mouseClicked();
+		w.mousePressed();
+		w.mouseReleased();
+		w.windowClosing();
+		w.windowClosed();
+		
+	}
+}
+
+Q.3)
+public interface PersistenceMechanism
+{
+	void writeData(String ref);
+	String readData();
+}
+
+//client side
+
+package pkg;
+class FileSystem implements PersistenceMechanism
+{
+	public void writeData(String ref)
+	{
+	 System.out.println("write data filesysttem");
+	}
+	public String readData()
+	{
+	System.out.println("read data");
+	}
+}
+
+class DatabaseSystem implements PersistenceMechanism
+{
+	public void writeData(String ref)
+	{
+	System.out.println("write data databasesystem");
+    }
+	public String readData()
+	{
+	System.out.println("read data databasesystem");
+
+	}
+}
+
+class BigdataSystem implements PersistenceMechanism
+{
+	public void writeData(String ref)
+	{
+	System.out.println("write data bigdatasystem");
+
+	}
+	public String readData()
+	{
+	System.out.println("read data bigdatasystem");
+}
+}
+public class filesystem {
+	public static void main(String [] args)
+	{
+		PersistenceMechanism arr[]=new PersistenceMechanism[3];
+		arr[0]=new BigdataSystem();
+		arr[1]=new FileSystem();
+		arr[2]=new DatabaseSystem();
+
+		for(int i=0;i<=arr.length();i++)
+		{
+			arr[i].BigdataSystem();
+		}
+	}
+
+Q.4)
+For Developer:
+
+package Interface;
+
+
+interface Vehicle { 
+    
+    // all are the abstract methods. 
+    void changeGear(int a); 
+    void speedUp(int a); 
+    void applyBrakes(int a); 
+} 
+
+public class GuiDemo
+{
+public static void main(String args[])
+{
+	System.out.println("Interface problem");
+}
+}
+
+For Client:
+
+package clientpro1;
+
+import Interface.Vehicle;
+class FourWheeler implements Vehicle
+{
+	public void changeGear(int a)
+	{
+		System.out.println("Gear changing technique");
+	}
+	public void speedUp(int a)
+	{
+		System.out.println("speedup the car");
+	}
+	public void applyBrakes(int a)
+	{
+		System.out.println("applying the breaks");
+	}
+}
+
+
+class TwoWheeler implements Vehicle
+{
+	public void changeGear(int a)
+	{
+		System.out.println("Change the gear");
+	}
+	public void speedUp(int a)
+	{
+		System.out.println("increase the speed");
+	}
+	public void applyBrakes(int a)
+	{
+		System.out.println("Applying the breaks of two wheeler");
+	}
+}
+
+
+
+public class Demo {
+	static void perform(Vehicle ref)
+	{
+		ref.changeGear();
+		ref.speedUp();
+		ref.applyBrakes();
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		perform(new FourWheeler());
+		perform(new TwoWheeler());
+		
+		
+
+	}
+
+}
+
+Q.5)
+
+package weaponpack;
+
+class weapon
+{
+	void attack()
+	{
+		System.out.println("Attack with a weapon");
+	}
+}
+
+class sword extends weapon
+{
+	void attack()
+	{
+		System.out.println("Attack with a sword");
+	}
+}
+
+class Bomb extends weapon
+{
+	void attack()
+	{
+		System.out.println("Attack with a Bomb");
+	}
+}
+
+class Gun extends weapon
+{
+	void attack()
+	{
+		System.out.println("Attack with a Gun");
+	}
+	
+	void fillbullets()
+	{
+		System.out.println("Fill the bullets");
+	}
+}
+
+
+public class soldier {
+	static void fight(weapon ref)
+	{
+		ref.attack();            // polymorphic invocation
+		if (ref instanceof Gun)
+		{
+		    Gun g = (Gun)ref;      // downcasting
+			g.fillbullets();
+		}
+	}
+    public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    	fight(new sword());
+    	fight(new Bomb());
+    	fight(new Gun());	
+
+	}
+
+}
+
+
+
+
+

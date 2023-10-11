@@ -1,0 +1,354 @@
+Assignment NO. 7
+
+Sahil kotekar
+
+1)
+
+package weaponpack;
+
+abstract class Course {
+    public void start() {
+        System.out.println("Start Method");
+    }
+
+    public abstract double getFee();
+
+    public abstract void evaluate();
+}
+
+class DACDBDACourse extends Course {
+   
+    public double getFee() {
+        return 10000;
+    }
+
+    
+    public void evaluate() {
+        System.out.println("DACDBDACourse Evaluation");
+    }
+}
+
+class MSCitCourse extends Course {
+   
+    public double getFee() {
+        return 15000;
+    }
+
+    public void evaluate() {
+        System.out.println("MSCitCourse Evaluation");
+    }
+}
+
+public class Demo {
+    public static void perform(Course ref) {
+        ref.evaluate();
+        System.out.println(ref.getFee());
+    }
+
+    public static void main(String[] args) {
+    	perform(new DACDBDACourse());
+		perform(new MSCitCourse());
+    }
+}
+
+2)
+package weaponpack;
+
+abstract class Beverages {
+
+	// Defined
+	public void addMilk() 
+	{
+       System.out.println("Adding Milk");
+	}
+
+	// abstract
+	abstract void addIngredients();
+}
+
+class Coffee extends Beverages
+{
+	void addIngredients()
+	{
+		// ingredients for Coffee
+		System.out.println("Add ingredients of coffee");
+	}
+	// addMilk inherited
+}
+class Tea extends Beverages
+{
+	void addIngredients()
+	{
+		// ingredients for Tea
+		System.out.println("Add ingredients of tea");
+	}
+	// addMilk inherited
+}
+class FruitJuice extends Beverages
+{
+	void addIngredients()
+	{
+		// ingredients for FruitJuice
+		System.out.println("Add ingredients of fruitjuice");
+	}
+	// addMilk inherited
+}
+
+public class Demo
+{
+	public static void main(String[] args)
+	{
+		Beverages ref[] = new Beverages[3];
+		ref[0]=new Coffee();
+		ref[1]=new Tea();
+	    ref[2]=new FruitJuice();
+	    
+	    for(int i=0; i<ref.length; i++)
+	    {
+	    	ref[i].addIngredients();
+	    }
+	}
+}
+
+3)
+package weaponpack;
+
+abstract class Shape
+{
+	public void show()
+	{
+		System.out.println("Show a shape");
+	}
+	
+	abstract void draw();
+}
+
+class Triangle extends Shape
+{
+	public void draw()
+	{
+		System.out.println("Draw a Triangle");
+	}
+}
+
+class Circle extends Shape
+{
+	public void draw()
+	{
+		System.out.println("Draw a Circle");
+	}
+}
+
+class Rectangle extends Shape
+{
+	public void draw()
+	{
+		System.out.println("Draw a Rectangle");
+	}
+}
+
+public class Demo
+{
+	public static void main(String[] args)
+	{
+		Shape ref[]=new Shape[3];
+		ref[0]=new Triangle();
+		ref[1]=new Circle();
+		ref[2]=new Rectangle();
+		
+		for(int i=0; i<ref.length; i++)
+		{
+			ref[i].draw();
+		}
+	}
+}
+
+ 
+
+5)
+package weaponpack;
+import java.util.Scanner;
+public class Demo
+{
+	public static void main(String[] args)
+	{
+	    System.out.println("Enter 3 numbers: ");
+		Scanner sc = new Scanner(System.in);
+	    int a = sc.nextInt();
+	    int b = sc.nextInt();
+	    int c = sc.nextInt();
+	    
+	    int sum = a+b+c;
+	    System.out.println(sum);
+	} 
+}
+
+6)
+
+package weaponpack;
+
+interface PizzaIngredientFactory
+{
+	abstract void createdough();
+	abstract void createsauce();
+	abstract void createcheese();
+}
+
+class USPizzaIngredientFactory implements PizzaIngredientFactory
+{
+	public void createdough()
+	{
+		System.out.println("Dough of US Pizza Factory");
+	}
+	public void createsauce()
+	{
+		System.out.println("Sauce of US Pizza Factory");
+	}
+	public void createcheese()
+	{
+		System.out.println("Cheese of US Pizza Factory");
+	}
+	
+}
+
+class IndianPizzaIngredientFactory implements PizzaIngredientFactory
+{
+	public void createdough()
+	{
+		System.out.println("Dough of Indian Pizza Factory");
+	}
+	public void createsauce()
+	{
+		System.out.println("Dough of Indian Pizza Factory");
+	}
+	public void createcheese()
+	{
+		System.out.println("Dough of Indian Pizza Factory");
+	}
+}
+
+public class Demo
+{
+	public static void main(String[] args)
+	{
+		PizzaIngredientFactory ref[] = new PizzaIngredientFactory[2];
+		ref[0]=new USPizzaIngredientFactory();
+		ref[1]=new IndianPizzaIngredientFactory();
+		
+		for (int i=0; i<ref.length; i++)
+		{
+			ref[i].createdough();
+			ref[i].createcheese();
+			ref[i].createsauce();
+		}
+	}
+}
+
+
+7)
+package weaponpack;
+
+class course
+{
+	public void start()
+	{
+		System.out.println("Start the course");
+	}
+	public void stop()
+	{
+		System.out.println("Stop the course");
+	}
+}
+
+class DacDbda extends course
+{
+	public void start()
+	{
+		System.out.println("Start the DacDbda course");
+	}
+	public void stop()
+	{
+		System.out.println("Stop the DacDbda course");
+	}
+	public void orientation()
+	{
+		System.out.println("Orientation has started");
+	}
+}
+
+class MSCit extends course
+{
+	public void start()
+	{
+		System.out.println("Start the MSCit course");
+	}
+	public void stop()
+	{
+		System.out.println("Stop the MSCit course");
+	}
+}
+
+class Basic extends course
+{
+	public void start()
+	{
+		System.out.println("Start the Basic course");
+	}
+	public void stop()
+	{
+		System.out.println("Stop the Basic course");
+	}
+}
+
+public class Demo
+{
+	public static void main(String[] args)
+	{
+		course ref[] = new course[3];
+		ref[0]= new DacDbda();
+		ref[1]= new MSCit();
+		ref[2]= new Basic();
+		
+		for(int i=0; i<ref.length; i++)
+		{
+			ref[i].start();
+			if(ref[i] instanceof DacDbda)
+			{
+				DacDbda ob = new DacDbda();
+				ob.orientation();
+			}
+			ref[i].stop();
+		}
+		
+	}
+}
+
+
+
+
+
+
+8)
+package weaponpack;
+
+public class Demo
+{
+	public void disp(int...var)
+	{
+		int num=0;
+		for(int i=0; i<var.length; i++)
+		{
+			System.out.println(var[i]);
+			num = num+var[i];
+		}
+		System.out.println("The sum is "+num);
+	}
+	public static void main(String[] args)
+	{
+		Demo d = new Demo();
+		d.disp(10,20,30);
+		
+	}
+}
+
+
