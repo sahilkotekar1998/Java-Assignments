@@ -1,0 +1,380 @@
+Q-1
+class Base 
+{
+	Base()
+	{
+		System.out.println("base constructor");
+	}
+}
+
+class sub1 extends Base
+{
+
+	sub1(int k)
+	{
+		System.out.println(k);
+		System.out.println("sub1 constructor");
+	}
+}
+
+class sub2 extends sub1
+{
+	sub2()
+	{   
+		super(12);
+		System.out.println("sub2 constructor");
+	}
+
+	sub2(int k)
+	{   
+		super(12);
+		System.out.println("sub2 parameterised constructor");
+	}
+	
+}
+
+public class multilevel
+{
+	public static void main(String args[])
+	{
+		sub1 s1=new sub1(10);
+		sub2 s2=new sub2();
+		sub2 s3=new sub2(10);
+	}
+}
+Q-2
+class Vehicle 
+{
+	public void start()
+	{
+		System.out.println("start vehicle");
+	}
+}
+
+class FourWheeler extends Vehicle
+{
+	public void start()
+	{
+		System.out.println("start FourWheeler");
+	}
+}
+
+public class Demo
+{
+	public static void main(String args[])
+	{
+		FourWheeler f=new FourWheeler();
+		f.start();
+	}
+}
+
+Q-3
+class Base 
+{
+	Base(int k)
+	{
+		System.out.println(k);
+		System.out.println("base constructor");
+	}
+}
+
+class sub1 extends Base
+{
+
+	sub1(int k)
+	{
+		super(k);
+		System.out.println(k);
+		System.out.println("sub1 constructor");
+	}
+}
+
+class sub2 extends Base
+{
+	sub2()
+	{   
+		super(12);
+		System.out.println("sub2 constructor");
+	}
+
+	sub2(int k)
+	{   
+		super(12);
+		System.out.println("sub2 parameterised constructor");
+	}
+	
+}
+
+public class hierarchical
+{
+	public static void main(String args[])
+	{
+		sub1 s1=new sub1(10);
+		sub2 s2=new sub2();
+		sub2 s3=new sub2(10);
+	}
+}
+Q-4
+package trial;
+
+class Top1
+{
+	void disp1()
+	{
+		System.out.println("top1 disp");
+	}
+}
+
+class Bottom1 extends Top1
+{
+	void disp1()
+	{
+		System.out.println("bottom1 disp");
+	}
+}
+class Bottom2 extends Top1
+{
+	void disp1()
+	{
+		System.out.println("bottom2 disp");
+	}
+}
+class Bottom3 extends Top1
+{
+	void disp1()
+	{
+		System.out.println("bottom3 disp");
+	}
+}
+
+public class Demo
+{
+	static void perform(Top1 ref)
+	{
+		ref.disp1();
+	}
+	
+	public static void main(String args[])
+	{
+		perform(new Bottom1());
+		perform(new Bottom2());
+		perform(new Bottom3());
+	}
+}
+
+Q-5
+abstract class Shape
+{
+	abstract void draw();
+}
+
+class Triangle extends Shape
+{
+	void draw()
+	{
+		System.out.println("draw triangle");
+	}
+}
+
+class polygon extends Shape
+{
+	void draw()
+	{
+		System.out.println("draw polygon");
+	}
+}
+
+class Circle extends Shape
+{
+	void draw()
+	{
+		System.out.println("draw circle");
+	}
+}
+
+public class Demo
+{
+	public static void main(String args[])
+	{
+		Shape arr[]=new Shape[3];
+		arr[0]=new Triangle();
+		arr[1]=new Circle();
+		arr[2]=new polygon();
+		
+		for (int i=0;i<arr.length;i++)
+		{
+			arr[i].draw();
+		}
+		
+	}
+	
+}
+
+Q-6
+package trial;
+
+interface A
+{
+	int num=10;
+	void disp1();
+}
+
+interface B extends A
+{
+	String s= "child";
+	void disp2();
+}
+
+class c implements B
+{
+	public void disp1()
+	{
+		System.out.println("interface A "+num);
+	}
+	public void disp2()
+	{
+		System.out.println("interface B "+s);
+	}
+}
+
+public class demo
+{
+	public static void main(String args[])
+	{
+		c obj =new c();
+		obj.disp1();
+		obj.disp2();
+	}
+}
+
+
+Q-7
+class Parent1
+{
+	int num;
+	String s;
+}
+
+interface Parent2
+{
+	void show();
+}
+
+class child extends Parent1 implements Parent2
+{
+	public void show()
+	{
+		System.out.println(s);
+		System.out.println(num);
+	}
+}
+
+public class Demo
+{
+	public static void main(String args[])
+	{
+		child c=new child();
+		c.show();
+	}
+}
+
+Q-8
+package trial;
+
+class base1
+{
+	base1(int k)
+	{
+		System.out.println(k);
+	}
+}
+
+class sub1 extends base1
+{
+	sub1()
+	{
+		super(10);
+		System.out.println("Default constructor");
+	}
+	sub1(int k)
+	{
+		super(10);
+		System.out.println("Parameterised constructor");
+	}
+	sub1(int k,int l)
+	{
+		super(10);
+		System.out.println("Two Parameterised constructor");
+	}
+}
+
+public class Demo
+{
+	public static void main(String args[])
+	{
+		sub1 s1 = new sub1(10);
+		sub1 s2=new sub1(10,20);
+	}
+}
+
+
+
+
+Q-9
+package trial;
+interface Game
+{
+	void play();
+	
+}
+
+class Cricket implements Game
+{
+	public void play()
+	{
+		System.out.println("play cricket");
+	}
+}
+class Football implements Game
+{
+	public void play()
+	{
+		System.out.println("play football");
+	}
+}
+class Tennis implements Game
+{
+	public void play()
+	{
+		System.out.println("play tennis");
+	}
+}
+
+public class Demo
+{
+	/*
+	 * static void perform(Game ref) { ref.play(); }
+	 */
+	
+	public static void main(String args[])
+	{
+		/*
+		 * perform(new Tennis()); perform(new Cricket()); perform(new Football());
+		 */
+		Game arr[]=new Game[3];
+		arr[0]=new Cricket();
+		arr[1]=new Tennis();
+		arr[2]=new Football();
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			arr[i].play();
+		}
+	}
+}
+
+
+
+
+
+
