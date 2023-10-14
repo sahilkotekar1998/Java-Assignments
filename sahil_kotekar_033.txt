@@ -1,0 +1,69 @@
+Q1]
+
+
+abstract class Account {
+    abstract void calcInt();
+}
+
+
+class Saving extends Account {
+    void calcInt() {
+        System.out.println("Calculating interest for Saving account");
+    }
+}
+
+class Current extends Account {
+    void calcInt() {
+        System.out.println("Calculating interest for Current account");
+    }
+}
+
+
+class RD extends Account {
+    void calcInt() {
+        System.out.println("Calculating interest for Recurring Deposit account");
+    }
+}
+
+
+public class AcDemo {
+    public static void perform(Account ac) {
+        ac.calcInt();
+    }
+
+    public static void main(String[] args) {
+        
+        perform(new Saving()); 
+        perform(new Current());
+        perform(new RD());
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q2]
+
+
+public class Pattern {
+    public static void main(String[] args) {
+        int r = 4; 
+
+        
+        for (int i=1; i<=r;i++) {
+            for (int j=1; j<=i; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println(); 
+        }
+    }
+}
