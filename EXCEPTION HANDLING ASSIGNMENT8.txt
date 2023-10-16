@@ -1,0 +1,233 @@
+1)
+//devloper
+package great;
+public class MyArithException extends Exception{
+public MyArithException(String message){
+	super(message);
+}
+}
+//
+package great;
+public class Calculator {
+    public double caldouble(int num) throws MyArithException {
+        if (num == 0) {
+            throw new MyArithException("Zero not allowed");
+        } else if (num < 0) {
+            throw new MyArithException("Negative not allowed");
+        }
+        return 2.0 * num;
+    }
+}
+//CLIENT
+package great;
+import java.util.Scanner;
+public class Mycalc {
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter a number");
+		int input=sc.nextInt();
+		
+		Calculator c=new Calculator();
+		try {
+			double result=c.caldouble(input);
+			System.out.println("double is" +result);
+		}
+		catch(MyArithException e)
+		{
+			System.out.println("error"+e.getMessage());
+			
+		}
+}
+}
+###################################################################
+
+2)
+*****************DEVELOPER CODE****************
+package great;
+
+public class NumberNotDivisibleBySevenException extends Exception {
+    public NumberNotDivisibleBySevenException(String message) {
+        super(message);
+    }
+}
+****************CLIENT CODE******************
+package great
+
+import great.NumberNotDivisibleBySevenException;
+
+class MyMath {
+	public void disp(int num) throws NumberNotDivisibleBySevenException
+	{
+		if(num%7!=0)
+		{
+			throw new NumberNotDivisibleBySevenException("The number " + num + " is not divisible by 7.");
+		}else
+		{
+			System.out.println(num);
+		}
+	}
+}
+public class Demo1 {
+
+	public static void main(String[] args) {
+		MyMath myMath = new MyMath();
+		try {
+			myMath.disp(7); //We Have To Give Input Here 
+		} catch (NumberNotDivisibleBySevenException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}
+
+
+###################################################################
+
+3)
+
+package great;
+
+class MyException extends Exception {
+ public MyException(String message) {
+     super(message);
+ }
+}
+
+
+class Demo {
+ 
+ public void show1() {
+     try {
+         show2();
+     } catch (MyException e) {
+         System.out.println("Exception caught in show1(): " + e.getMessage());
+     }
+ }
+
+ 
+ public void show2() throws MyException {
+     show3();
+ }
+
+ 
+ public void show3() throws MyException {
+     System.out.print("Enter a number: ");
+     int number = 0; // Initialize the number to 0
+     try {
+        
+         number = 12; // Change this to any number to test the exception
+         if (number > 10) {
+             throw new MyException("Number is greater than 10.");
+         } else {
+             System.out.println("Number is: " + number);
+         }
+     } catch (MyException e) {
+         // The exception is not handled here, as specified
+         throw e;
+     }
+ }
+
+
+ public static void main(String[] args) {
+     Demo demo = new Demo();
+     demo.show1();
+ }
+}
+
+public class Main {
+ public static void main(String[] args) {
+     Demo.main(args);
+ }
+}
+############################################################################
+
+ 4)
+*********************DEVELOPER CODE************
+package great;
+public class InvalidLengthException extends Exception {
+    public InvalidLengthException(String message) {
+        super(message);
+    }
+}
+****************CLIENT CODE****************
+package great;
+import pack6.InvalidLengthException;
+class Authenticator {
+    private String password;
+
+    public Authenticator(String password) throws InvalidLengthException {
+        if (password.length() < 5 || password.length() > 9) {
+            throw new InvalidLengthException("Password length should be between 5 and 9 characters");
+        }
+        this.password = password;
+    }
+
+    public void done() {
+        System.out.println("Successful authentication");
+    }
+}
+public class Demo {
+    public static void main(String[] args) {
+Authenticator authenticator = new Authenticator("password");
+        authenticator.done();       
+ try {
+            Authenticator authenticator = new Authenticator("password");
+            authenticator.done();
+        } catch (InvalidLengthException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+###########################################
+
+5)
+/**
+ * 
+ */
+package great
+
+/**
+ * @author gaurav
+ */
+public class ResourceNotAllocatedException extends Exception {
+    public ResourceNotAllocatedException(String message) {
+        super(message);
+    }
+}
+**************CLIENT CODE*******************
+package great;
+
+class MyResource implements AutoCloseable {
+    private int capacity;
+
+    public MyResource(int capacity) throws ResourceNotAllocatedException {
+        if (capacity > 100) {
+            throw new ResourceNotAllocatedException("not sufficient space");
+        }
+        this.capacity = capacity;
+    }
+
+    public void disp() {
+        System.out.println("successful");
+    }
+    public void close() {
+        System.out.println("resource is closed");
+    }
+}
+public class Demo1 {
+    public static void main(String[] args) throws ResourceNotAllocatedException {
+        try {
+            MyResource myResource = new MyResource(110);
+            myResource.disp();
+        } catch (ResourceNotAllocatedException e) {
+            System.out.println(e.getMessage());
+        }
+        try (MyResource myResource = new MyResource(10)) {
+            myResource.disp();
+    }
+}
+}
+
+
